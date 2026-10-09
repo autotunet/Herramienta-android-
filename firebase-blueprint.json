@@ -1,0 +1,125 @@
+{
+  "entities": {
+    "Note": {
+      "title": "Note",
+      "description": "User personal note with rich content, tags and color coding",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique note identifier" },
+        "userId": { "type": "string", "description": "ID of the owner user" },
+        "title": { "type": "string", "description": "Note title" },
+        "content": { "type": "string", "description": "Note body text" },
+        "category": { "type": "string", "description": "Category or tag" },
+        "isPinned": { "type": "boolean", "description": "Whether note is pinned to top" },
+        "colorHex": { "type": "string", "description": "Color accent in hex format" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp via serverTimestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Last update timestamp via serverTimestamp" }
+      },
+      "required": ["id", "userId", "title", "content"]
+    },
+    "TaskItem": {
+      "title": "TaskItem",
+      "description": "Productivity task item with priority and status",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique task identifier" },
+        "userId": { "type": "string", "description": "ID of the owner user" },
+        "title": { "type": "string", "description": "Task title" },
+        "description": { "type": "string", "description": "Detailed task description" },
+        "isCompleted": { "type": "boolean", "description": "Completion flag" },
+        "priority": { "type": "string", "description": "Priority level LOW, MEDIUM, or HIGH" },
+        "category": { "type": "string", "description": "Task category tag" },
+        "dueDate": { "type": "string", "description": "Due date formatted string" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp via serverTimestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Last update timestamp via serverTimestamp" }
+      },
+      "required": ["id", "userId", "title", "isCompleted"]
+    },
+    "Habit": {
+      "title": "Habit",
+      "description": "Daily habit tracker item with streaks",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique habit identifier" },
+        "userId": { "type": "string", "description": "ID of the owner user" },
+        "name": { "type": "string", "description": "Habit name" },
+        "targetDaysPerWeek": { "type": "integer", "description": "Target days per week" },
+        "streakCount": { "type": "integer", "description": "Current consecutive streak" },
+        "lastCompletedDate": { "type": "string", "description": "Last completion date" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp via serverTimestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Last update timestamp via serverTimestamp" }
+      },
+      "required": ["id", "userId", "name"]
+    },
+    "ClipboardItem": {
+      "title": "ClipboardItem",
+      "description": "Quick synced clipboard snippet",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique snippet identifier" },
+        "userId": { "type": "string", "description": "ID of the owner user" },
+        "snippet": { "type": "string", "description": "Copied text content" },
+        "sourceLabel": { "type": "string", "description": "Source or tag" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp via serverTimestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Last update timestamp via serverTimestamp" }
+      },
+      "required": ["id", "userId", "snippet"]
+    },
+    "Device": {
+      "title": "Device",
+      "description": "Connected device profile for multi-device sync",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Device unique hardware ID" },
+        "userId": { "type": "string", "description": "Owner user ID" },
+        "deviceName": { "type": "string", "description": "Device friendly name" },
+        "model": { "type": "string", "description": "Device hardware model" },
+        "lastSyncTime": { "type": "string", "format": "date-time", "description": "Last real-time sync timestamp" },
+        "appVersion": { "type": "string", "description": "Installed app version" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp via serverTimestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Last update timestamp via serverTimestamp" }
+      },
+      "required": ["id", "userId", "deviceName"]
+    },
+    "Backup": {
+      "title": "Backup",
+      "description": "Cloud backup snapshot metadata",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Backup snapshot ID" },
+        "userId": { "type": "string", "description": "Owner user ID" },
+        "backupName": { "type": "string", "description": "User or system title for backup" },
+        "itemCount": { "type": "integer", "description": "Number of synced items" },
+        "payloadSummary": { "type": "string", "description": "Summary of data backed up" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Backup creation timestamp" }
+      },
+      "required": ["id", "userId", "backupName"]
+    }
+  },
+  "firestore": {
+    "/notes/{noteId}": {
+      "schema": "Note",
+      "description": "Collection of user notes"
+    },
+    "/tasks/{taskId}": {
+      "schema": "TaskItem",
+      "description": "Collection of productivity tasks"
+    },
+    "/habits/{habitId}": {
+      "schema": "Habit",
+      "description": "Collection of user habits"
+    },
+    "/clipboard/{clipId}": {
+      "schema": "ClipboardItem",
+      "description": "Collection of synced clipboard clips"
+    },
+    "/devices/{deviceId}": {
+      "schema": "Device",
+      "description": "Collection of connected devices for real-time synchronization"
+    },
+    "/backups/{backupId}": {
+      "schema": "Backup",
+      "description": "Collection of automated cloud backup snapshots"
+    }
+  }
+}

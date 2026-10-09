@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AndroSuite</string>
+    <string name="title_dashboard">Panel de Control</string>
+    <string name="title_productivity">Productividad</string>
+    <string name="title_power_wifi">Potencia y Wi-Fi</string>
+    <string name="title_security">Escudo Blindado</string>
+    <string name="title_vault">Bóveda Cifrada</string>
+    <string name="title_ai">Inteligencia Artificial</string>
+    <string name="title_cloud">Nube Multi-Dispositivo</string>
+    <string name="speed_test_title">Test de Velocidad de Red</string>
+    <string name="download_speed">Descarga</string>
+    <string name="upload_speed">Subida</string>
+    <string name="start_speed_test">Iniciar Test de Velocidad</string>
+    <string name="language_select">Seleccionar Idioma</string>
+</resources>

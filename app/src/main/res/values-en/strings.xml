@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AndroSuite</string>
+    <string name="title_dashboard">Command Center</string>
+    <string name="title_productivity">Productivity</string>
+    <string name="title_power_wifi">Power &amp; Wi-Fi</string>
+    <string name="title_security">Armored Shield</string>
+    <string name="title_vault">Encrypted Vault</string>
+    <string name="title_ai">Artificial Intelligence</string>
+    <string name="title_cloud">Multi-Device Cloud</string>
+    <string name="speed_test_title">Network Speed Test</string>
+    <string name="download_speed">Download</string>
+    <string name="upload_speed">Upload</string>
+    <string name="start_speed_test">Start Speed Test</string>
+    <string name="language_select">Select Language</string>
+</resources>
